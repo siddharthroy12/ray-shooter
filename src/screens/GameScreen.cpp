@@ -24,7 +24,7 @@ void GameScreen::update() {
     }
 
     if (GetRandomValue(0, 30) == 0) {
-        //this->childrens.push_back(new Enemy(this));
+        this->childrens.push_back(new Enemy(this));
     }
 
 }
