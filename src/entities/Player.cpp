@@ -3,7 +3,7 @@
 #include <cmath>
 
 Player::Player(Node* parent) : Node(parent) {
-    this->texture = LoadTexture(ASSETS_PATH"player.png");
+    this->texture = LoadTexture("assets/player.png");
     this->sourceRec = { 0.0f, 0.0f, texture.width, texture.height };
     this->destRec = { this->position.x, this->position.y, texture.width*5, texture.height*5};
     this->origin = { (texture.width*5) /2, (texture.height*5)/2 };
