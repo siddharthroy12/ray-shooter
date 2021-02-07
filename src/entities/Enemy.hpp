@@ -18,7 +18,7 @@ class Enemy : public Node {
 
     public:
         Enemy(Node* parent);
-        char* name() { return "Enemy"; }
+        std::string name() { return "Enemy"; }
         ~Enemy();
         Rectangle hitbox;
         void render();

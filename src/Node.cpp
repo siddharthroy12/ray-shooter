@@ -49,7 +49,7 @@ Node* Node::updateAndRender() {
     return this;
 }
 
-Node* Node::getChildren(char* name) {
+Node* Node::getChildren(std::string name) {
     for (Node* child : this->childrens) {
         if (child != NULL) {
             if (child->name() == name) {

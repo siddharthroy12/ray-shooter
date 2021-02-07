@@ -18,9 +18,9 @@ class Node {
     Node(Node *parent);
     void deleteThis();
     bool paused = false;
-    virtual char* name() { return "Node"; }
+    virtual std::string name() { return "Node"; }
     std::vector<Node*> childrens;
-    Node* getChildren(char *name);
+    Node* getChildren(std::string name);
     Node* parent;
     
     virtual ~Node();

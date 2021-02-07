@@ -1,6 +1,7 @@
 #include "../Globals.hpp"
 #include "Enemy.hpp"
 #include <cmath>
+#include <iostream>
 #include "Player.hpp"
 
 Enemy::Enemy(Node* parent) : Node(parent) {
@@ -27,6 +28,9 @@ void Enemy::render() {
 
 void Enemy::update() {
     Player* tmpp = (Player*) parent->getChildren("Player");
+    if (tmpp == NULL) {
+        std::cout << "ca" << std::endl;
+    }
     Vector2 playerPosition = tmpp->getPosition();
     float tmp = atan2(playerPosition.y -position.y, playerPosition.x - position.x);
     rotation = (tmp * 180 / PI) + 90;

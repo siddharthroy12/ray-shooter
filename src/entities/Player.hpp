@@ -15,7 +15,7 @@ class Player : public Node {
     int speed = 5;
     
     public:
-        char* name() { return "Player"; }
+        std::string name() { return "Player"; }
         Vector2 head = { 1.0f, 1.0f };
         Player(Node* parent);
         ~Player();

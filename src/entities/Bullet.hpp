@@ -11,7 +11,7 @@ class Bullet : public Node {
     Vector2 direction = { 0.0f, 0.0f };
 
     public:
-        char* name() { return "Bullet"; }
+        std::string name() { return "Bullet"; }
         Rectangle hitbox = { 0.0f, 0.0f, size, size };
         void render();
         void update();
