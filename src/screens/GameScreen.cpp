@@ -16,10 +16,8 @@ void GameScreen::update() {
     if (IsKeyPressed(KEY_K)) {
         this->childrens.push_back(new Enemy(this));
     }
+    
     if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        this->childrens.push_back(new Bullet(this));
-    }
-    if (IsMouseButtonDown(MOUSE_RIGHT_BUTTON)) {
         this->childrens.push_back(new Bullet(this));
     }
 
