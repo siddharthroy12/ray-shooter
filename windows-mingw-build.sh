@@ -122,7 +122,7 @@ if [ ! -d "$TEMP_DIR" ]; then
 fi
 
 CC=x86_64-w64-mingw32-g++
-COMPILATION_FLAGS="-std=c++11 -Os -flto -I ${PWD}/include"
+COMPILATION_FLAGS="-std=c++11 -Os -flto -I ${PWD}/include -Wl,-subsystem,windows"
 
 # Build the actual game
 mkdir -p $OUTPUT_DIR

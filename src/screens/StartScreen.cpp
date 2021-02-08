@@ -21,13 +21,13 @@ StartScreen::StartScreen(Node* parent) : Node(parent) {
 void StartScreen::render() {
     ClearBackground(WHITE);
     
-    DrawTextRec(GetFontDefault(), this->text, this->textRec, 30, 2, false, BLACK);
+    DrawTextRec(GetFontDefault(), this->text, this->textRec, 30, 2, false, { 34, 32, 52, 255 });
     Rectangle tmp = textRec;
     tmp.x -= 7;
     tmp.y -= 5;
     tmp.width += 10;
     tmp.height += 8;
-    DrawRectangleLinesEx((tmp), 2, BLACK);
+    DrawRectangleLinesEx((tmp), 2, { 34, 32, 52, 255 });
 
     DrawTextRec(GetFontDefault(), "Exit", this->exitRec, 30, 2, false, RED);
     tmp = exitRec;
@@ -47,7 +47,7 @@ void StartScreen::render() {
     
     
 
-    DrawRectangle(0,0, MeasureText((std::string("Your Highscore: ") + std::to_string(globalState->highscore)).c_str(), 30) + 10, 31, BLACK);
+    DrawRectangle(0,0, MeasureText((std::string("Your Highscore: ") + std::to_string(globalState->highscore)).c_str(), 30) + 10, 32, { 34, 32, 52, 255 });
     DrawText((std::string("Your Highscore: ") + std::to_string(globalState->highscore)).c_str(), 4, 2, 30, WHITE);
 }
 

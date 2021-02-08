@@ -16,7 +16,7 @@ void GameScreen::update() {
     if (IsKeyPressed(KEY_K)) {
         this->childrens.push_back(new Enemy(this));
     }
-    
+
     if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         this->childrens.push_back(new Bullet(this));
     }
@@ -30,7 +30,7 @@ void GameScreen::update() {
 void GameScreen::render() {
     ClearBackground(WHITE);
 
-    DrawRectangle(0,0, MeasureText((std::string("Kills: ") + std::to_string(this->kills)).c_str(), 30) + 10, 31, BLACK);
+    DrawRectangle(0,0, MeasureText((std::string("Kills: ") + std::to_string(this->kills)).c_str(), 30) + 10, 32, { 34, 32, 52, 255 });
     DrawText((std::string("Kills: ") + std::to_string(this->kills)).c_str(), 4, 2, 30, WHITE);
 }
 
