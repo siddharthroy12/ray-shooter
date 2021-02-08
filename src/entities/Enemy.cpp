@@ -1,8 +1,11 @@
 #include "../Globals.hpp"
 #include "Enemy.hpp"
 #include <cmath>
+#include "raylib.h"
+#include "../context/GlobalContext.hpp"
 #include <iostream>
 #include "Player.hpp"
+#include "../screens/GameOver.hpp"
 
 Enemy::Enemy(Node* parent) : Node(parent) {
     if (GetRandomValue(0, 1)) {
@@ -28,15 +31,17 @@ void Enemy::render() {
 
 void Enemy::update() {
     Player* tmpp = (Player*) parent->getChildren("Player");
-    if (tmpp == NULL) {
-        std::cout << "ca" << std::endl;
-    }
     Vector2 playerPosition = tmpp->getPosition();
     float tmp = atan2(playerPosition.y -position.y, playerPosition.x - position.x);
     rotation = (tmp * 180 / PI) + 90;
     this->head.x = cos(tmp);
     this->head.y = sin(tmp);
     this->setPosition({ this->getPosition().x + (head.x * speed), this->getPosition().y + (head.y * speed) });
+
+    if (CheckCollisionRecs(tmpp->hitbox, this->hitbox)) {
+        globalState->setRootnode(new GameOver(NULL));
+    }
+
 }
 
 Vector2 Enemy::getPosition() { return this-> position; }

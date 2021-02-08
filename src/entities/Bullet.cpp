@@ -2,6 +2,7 @@
 #include "Enemy.hpp"
 #include "Player.hpp"
 #include "../screens/GameScreen.hpp"
+#include "../context/GlobalContext.hpp"
 
 Bullet::Bullet(Node* parent) : Node(parent) {
     Player* tmp = (Player*) parent->getChildren("Player");
@@ -34,6 +35,9 @@ void Bullet::update() {
                 Enemy* tmp = (Enemy*) child;
                 if (CheckCollisionRecs(this->hitbox, tmp->hitbox)) {
                     ((GameScreen*) parent)->kills++;
+                    if (((GameScreen*) parent)->kills > globalState->highscore){
+                        globalState->highscore = ((GameScreen*) parent)->kills;
+                    }
                     child->deleteThis();
                     this->deleteThis();
                 }

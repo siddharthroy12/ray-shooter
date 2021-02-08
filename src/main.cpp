@@ -2,6 +2,7 @@
 #include "Globals.hpp"
 #include "./context/GlobalContext.hpp"
 #include "Node.hpp"
+#include <iostream>
 
 int main(void)
 {
@@ -19,11 +20,17 @@ int main(void)
 
 
     // Main game loop
-    while ((!WindowShouldClose()) && globalState != NULL)    // Detect window close button or ESC key
+    while ((!WindowShouldClose()) && globalState->rootNode != NULL)    // Detect window close button or NULL rootNode
     {
         BeginDrawing();
             globalState->rootNode->updateAndRender();
         EndDrawing();
+        if (globalState->change) {
+            delete globalState->rootNode;
+            globalState->rootNode = globalState->changeTo;
+            globalState->change = false;
+            globalState->changeTo = NULL;
+        } 
     }
 
     // De-Initialization

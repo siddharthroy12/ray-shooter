@@ -5,7 +5,14 @@ GlobalState::GlobalState() {
     this->rootNode = new GameScreen(NULL);
 }
 
+void GlobalState::setRootnode(Node *node) {
+    this->changeTo = node;
+    this->change = true;
+}
+
 GlobalState::~GlobalState() {
-    delete rootNode;
-    rootNode = NULL;
+    if (this->rootNode != NULL) {
+        delete rootNode;
+        rootNode = NULL;
+    }
 }
