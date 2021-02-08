@@ -32,7 +32,8 @@ void GameScreen::update() {
 void GameScreen::render() {
     ClearBackground(WHITE);
 
-    DrawText(std::to_string(this->kills).c_str(), 6, 30, 30, RED);
+    DrawRectangle(0,0, MeasureText((std::string("Kills: ") + std::to_string(this->kills)).c_str(), 30) + 10, 31, BLACK);
+    DrawText((std::string("Kills: ") + std::to_string(this->kills)).c_str(), 4, 2, 30, WHITE);
 }
 
 void GameScreen::pause() {

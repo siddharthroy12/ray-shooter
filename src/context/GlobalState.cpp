@@ -1,8 +1,10 @@
 #include "GlobalState.hpp"
-#include "../screens/GameScreen.hpp"
+#include "../screens/StartScreen.hpp"
 
 GlobalState::GlobalState() {
-    this->rootNode = new GameScreen(NULL);
+    this->rootNode = new StartScreen(NULL);
+    this->highscore = LoadStorageValue(1);
+
 }
 
 void GlobalState::setRootnode(Node *node) {
@@ -15,4 +17,5 @@ GlobalState::~GlobalState() {
         delete rootNode;
         rootNode = NULL;
     }
+    SaveStorageValue(1, this->highscore);
 }

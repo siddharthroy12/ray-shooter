@@ -37,13 +37,14 @@ Node* Node::updateAndRender() {
         this->_render();
     } else {
         this->update();
-        this->render();
-
+        
         for (Node*& child : this->childrens) {
             if (child != NULL) {
                 child = child->updateAndRender();
             }
         }
+
+        this->render();
     }
 
     return this;

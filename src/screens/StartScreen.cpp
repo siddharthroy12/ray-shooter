@@ -1,24 +1,24 @@
-#include "GameOver.hpp"
+#include "StartScreen.hpp"
 #include "raylib.h"
 #include "../context/GlobalContext.hpp"
 #include "../Globals.hpp"
 #include "GameScreen.hpp"
 
-GameOver::GameOver(Node* parent) : Node(parent) {
+StartScreen::StartScreen(Node* parent) : Node(parent) {
     this->textRec.width = (MeasureTextEx(GetFontDefault(), this->text, 30, 2)).x + 4;
     this->textRec.height = (MeasureTextEx(GetFontDefault(), this->text, 30, 2)).y;
     this->textRec.x = (SCREEN_WIDTH / 2) - (this->textRec.width / 2);
 
     this->exitRec.width = (MeasureTextEx(GetFontDefault(), "Exit", 30, 2)).x + 4;
     this->exitRec.height = (MeasureTextEx(GetFontDefault(), "Exit", 30, 2)).y + 1;
-    this->exitRec.x = (SCREEN_WIDTH / 2) - (this->exitRec.width) - 60;
+    this->exitRec.x = (SCREEN_WIDTH / 2) - (this->exitRec.width) - 20;
 
-    this->againRec.width = (MeasureTextEx(GetFontDefault(), "Play Again", 30, 2)).x + 4;
-    this->againRec.height = (MeasureTextEx(GetFontDefault(), "Play Again", 30, 2)).y + 1;
-    this->againRec.x = (SCREEN_WIDTH / 2) - 30;
+    this->againRec.width = (MeasureTextEx(GetFontDefault(), "Play", 30, 2)).x + 4;
+    this->againRec.height = (MeasureTextEx(GetFontDefault(), "Play", 30, 2)).y + 1;
+    this->againRec.x = (SCREEN_WIDTH / 2) + 10;
 }
 
-void GameOver::render() {
+void StartScreen::render() {
     ClearBackground(WHITE);
     
     DrawTextRec(GetFontDefault(), this->text, this->textRec, 30, 2, false, BLACK);
@@ -43,7 +43,7 @@ void GameOver::render() {
     tmp.width += 7;
     tmp.height += 2;
     DrawRectangleRec(tmp, LIME);
-    DrawTextRec(GetFontDefault(), "Play Again", this->againRec, 30, 2, false, RAYWHITE);
+    DrawTextRec(GetFontDefault(), "Play", this->againRec, 30, 2, false, RAYWHITE);
     
     
 
@@ -51,7 +51,7 @@ void GameOver::render() {
     DrawText((std::string("Your Highscore: ") + std::to_string(globalState->highscore)).c_str(), 4, 2, 30, WHITE);
 }
 
-void GameOver::update() {
+void StartScreen::update() {
     if (CheckCollisionPointRec(GetMousePosition(), exitRec)) {
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             globalState->setRootnode(NULL);
@@ -65,4 +65,4 @@ void GameOver::update() {
     }
 }
 
-GameOver::~GameOver() {}
+StartScreen::~StartScreen() {}

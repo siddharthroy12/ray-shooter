@@ -11,7 +11,7 @@ int main(void)
 
     SetTraceLogLevel(LOG_NONE);
     SetConfigFlags(FLAG_MSAA_4X_HINT);
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Shoot!");
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Ray Shooter");
     SetExitKey(0);
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     initGlobalState();
