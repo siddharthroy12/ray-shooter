@@ -4,7 +4,6 @@
 GlobalState::GlobalState() {
     this->rootNode = new StartScreen(NULL);
     this->highscore = LoadStorageValue(1);
-
 }
 
 void GlobalState::setRootnode(Node *node) {

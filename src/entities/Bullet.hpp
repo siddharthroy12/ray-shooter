@@ -9,7 +9,6 @@ class Bullet : public Node {
     int size = 10;
     int speed = 20;
     Vector2 direction = { 0.0f, 0.0f };
-
     public:
         std::string name() { return "Bullet"; }
         Rectangle hitbox = { 0.0f, 0.0f, size, size };
