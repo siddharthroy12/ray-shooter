@@ -1,5 +1,5 @@
 # Raysnake
-![Alt text](/relative/screenshot/screenshot.png?raw=true "Game Screenshot")
+![Game Screenshot](/screenshot/screenshot.png?raw=true "Game Screenshot")
 
 This is my first big game written in c++
 
