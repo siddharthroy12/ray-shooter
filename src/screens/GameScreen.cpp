@@ -21,7 +21,7 @@ void GameScreen::update() {
         this->childrens.push_back(new Bullet(this));
     }
 
-    if (GetRandomValue(0, 30) == 0) {
+    if (GetRandomValue(0, 20) == 0) {
         this->childrens.push_back(new Enemy(this));
     }
 

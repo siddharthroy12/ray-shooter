@@ -15,6 +15,13 @@ int main(void)
     SetExitKey(0);
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     initGlobalState();
+    
+    // Cursor
+    HideCursor();
+    Texture texture = LoadTexture("assets/cursor.png");
+    Rectangle sourceRec = { 0.0f, 0.0f, texture.width, texture.height };
+    Rectangle destRec = { 0.0 , 0.0, texture.width*5, texture.height*5};
+    Vector2 origin = { (texture.width*5) /2, (texture.height*5)/2 };
     //---------------------------------------------------------------------------------------
 
 
@@ -22,8 +29,11 @@ int main(void)
     // Main game loop
     while ((!WindowShouldClose()) && globalState->rootNode != NULL)    // Detect window close button or NULL rootNode
     {
+        destRec = { GetMousePosition().x, GetMousePosition().y, texture.width*5, texture.height*5};
+
         BeginDrawing();
             globalState->rootNode->updateAndRender();
+            DrawTexturePro(texture, sourceRec, destRec, origin, 0.0, WHITE);
         EndDrawing();
         if (globalState->change) {
             delete globalState->rootNode;
@@ -35,6 +45,7 @@ int main(void)
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
+    UnloadTexture(texture);
     cleanGlobalState();
     CloseWindow();        // Close window and OpenGL context
     //--------------------------------------------------------------------------------------
